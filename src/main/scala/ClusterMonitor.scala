@@ -1,7 +1,6 @@
 package com.zengularity.raftology
 
 import akka.actor._
-import akka.cluster.Cluster
 import akka.cluster.ClusterEvent._
 
 class SimpleClusterMonitor extends Actor with ActorLogging {

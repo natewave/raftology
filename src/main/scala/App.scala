@@ -13,10 +13,11 @@ object App {
 
     // Create an Akka system
     val raftologySystem = ActorSystem("Raftology")
-    val clusterMonitor = raftologySystem.actorOf(Props[SimpleClusterMonitor],
-      name = "clusterMonitor")
+    val node = raftologySystem.actorOf(Props[Node], name = "node")
+    Cluster(raftologySystem).subscribe(node, classOf[ClusterDomainEvent])
 
     // Monitor cluster
-    Cluster(raftologySystem).subscribe(clusterMonitor, classOf[ClusterDomainEvent])
+    //val clusterMonitor = raftologySystem.actorOf(Props[SimpleClusterMonitor], name = "clusterMonitor")
+    //Cluster(raftologySystem).subscribe(clusterMonitor, classOf[ClusterDomainEvent])
   }
 }

@@ -14,6 +14,7 @@ lazy val akkaRemoting   = "com.typesafe.akka" %% "akka-remote" % "2.3.11"
 
 lazy val scalaTest      = "org.scalatest" %% "scalatest" % "2.2.4" % "test"
 
+
 libraryDependencies ++= Seq(
   akka,
   akkaTest,
